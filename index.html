@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carlos Alberto Hanco Saucedo - UPDS</title>
+
+  <!-- Bootstrap 5 + Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Configuración PWA para Celulares -->
+  <meta name="theme-color" content="#14213d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Carlos Hanco">
+
+  <style>
+    :root {
+      --tinta: #14213d;
+      --fondo: #f2f5f9;
+      --superficie: #ffffff;
+      --acento: #2f5bea;
+      --acento-suave: #e3eaff;
+      --mango: #ffb703;
+      --texto-suave: #4a5568;
+    }
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background: var(--fondo);
+      color: var(--tinta);
+      line-height: 1.65;
+    }
+    h1, h2, h3, h4 { font-family: "Bricolage Grotesque", system-ui, sans-serif; letter-spacing: -0.02em; }
+
+    /* Navegación */
+    .navbar { background: var(--tinta); }
+    .navbar .nav-link { color: #cfd8ee; }
+    .navbar .nav-link:hover, .navbar .nav-link:focus { color: #fff; }
+    .navbar-brand { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; color: #fff; }
+
+    /* Hero */
+    .hero { background: var(--tinta); color: #fff; padding: 4rem 0 5rem; }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.02; }
+    .hero .lead { color: #cfd8ee; max-width: 38rem; }
+    .foto {
+      width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
+      border: 5px solid var(--mango); background: var(--acento-suave);
+    }
+
+    /* Banner de instalación PWA */
+    .banner-instalacion {
+      background: linear-gradient(135deg, var(--acento), #14213d);
+      color: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-top: -2rem;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* Secciones */
+    section.bloque { padding: 4rem 0; }
+    .titulo-seccion { font-weight: 800; font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: .5rem; }
+    .subtitulo-seccion { color: var(--texto-suave); max-width: 40rem; margin-bottom: 2rem; }
+    .texto-presentacion { font-size: 1.1rem; max-width: 46rem; }
+
+    /* Videos */
+    .video-card {
+      background: var(--superficie); border: 1px solid #dbe2ee; border-radius: .75rem;
+      overflow: hidden; height: 100%; cursor: pointer; text-align: left; padding: 0; width: 100%;
+    }
+    .video-card:hover { border-color: var(--acento); }
+    .video-card .miniatura { position: relative; aspect-ratio: 16 / 9; background: var(--acento-suave); }
+    .video-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-card .play {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      color: #fff; font-size: 2.5rem; background: rgba(20, 33, 61, .25);
+    }
+    .video-card .info { padding: 1rem; }
+    .video-card h3 { font-size: 1rem; margin: 0 0 .15rem; }
+    .video-card p { margin: 0; color: var(--texto-suave); font-size: .9rem; }
+
+    /* Pasatiempos */
+    .pasatiempos { background: var(--acento-suave); }
+    .hobby { background: var(--superficie); border-radius: .75rem; padding: 1.25rem; height: 100%; border-left: 5px solid var(--acento); }
+    .hobby .emoji { font-size: 1.8rem; line-height: 1; }
+    .hobby h3 { font-size: 1.15rem; margin: .5rem 0 .25rem; }
+    .hobby p { margin: 0; color: var(--texto-suave); font-size: 0.95rem; }
+
+    /* Footer */
+    footer { background: var(--tinta); color: #cfd8ee; padding: 2.5rem 0 2rem; }
+    footer h2 { color: #fff; font-size: 1.3rem; }
+    .social a {
+      display: inline-grid; place-items: center; width: 2.5rem; height: 2.5rem;
+      border-radius: 50%; background: rgba(255, 255, 255, .1); color: #fff; font-size: 1.1rem;
+      margin: 0 .25rem; text-decoration: none; transition: background .15s;
+    }
+    .social a:hover { background: var(--acento); }
+  </style>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio"><i class="bi bi-person-circle"></i> Carlos Hanco</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#musica">Multimedia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pasatiempos">Pasatiempos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="inicio">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-md-7 text-center text-md-start">
+          <h1>Hola, soy Carlos Alberto Hanco Saucedo</h1>
+          <p class="lead mt-2">Estudiante de la Universidad Privada Domingo Savio (UPDS). Aplicación web móvil optimizada.</p>
+        </div>
+        <div class="col-md-5 text-center">
+          <img class="foto shadow" src="perfil.jpg" alt="Foto de perfil de Carlos Alberto Hanco Saucedo">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Botón / Banner de instalación PWA -->
+    <div id="seccion-instalar" class="banner-instalacion d-none align-items-center justify-content-between flex-wrap gap-3 shadow-sm">
+      <div>
+        <h3 class="h5 mb-1"><i class="bi bi-phone-fill"></i> Instalar App en tu Celular</h3>
+        <p class="mb-0 small text-light">Accede a esta página directamente como aplicación desde tu pantalla de inicio sin ocupar espacio.</p>
+      </div>
+      <button id="btnInstalar" class="btn btn-warning fw-bold px-4">Instalar Aplicación</button>
+    </div>
+
+    <!-- Sobre mí -->
+    <section class="bloque" id="sobre-mi">
+      <h2 class="titulo-seccion">Sobre mí</h2>
+      <p class="texto-presentacion">
+        Aprendí a resolver problemas de manera óptima y eficiente con ayuda de la tecnología. Apasionado por la innovación, el desarrollo de soluciones informáticas y el aprendizaje continuo.
+      </p>
+    </section>
+
+    <!-- Multimedia -->
+    <section class="bloque pt-0" id="musica">
+      <h2 class="titulo-seccion">Videos Destacados</h2>
+      <p class="subtitulo-seccion">Contenido multimedia reproducido directamente en la aplicación.</p>
+      <div class="row g-4" id="lista-videos"></div>
+    </section>
+
+    <!-- Pasatiempos -->
+    <section class="bloque pasatiempos rounded-4 p-4 my-3" id="pasatiempos">
+      <h2 class="titulo-seccion">Mis pasatiempos</h2>
+      <p class="subtitulo-seccion">Actividades y hobbies favoritos.</p>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-4">
+          <div class="hobby">
+            <div class="emoji">📚</div>
+            <h3>Aprender más cada día</h3>
+            <p>Curiosidad constante y dedicación por adquirir nuevos conocimientos y habilidades tecnológicas.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="hobby">
+            <div class="emoji">🧩</div>
+            <h3>Resolver problemas</h3>
+            <p>Pensamiento analítico y creativo para encontrar soluciones óptimas y eficientes mediante la tecnología.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <div class="hobby">
+            <div class="emoji">🎮</div>
+            <h3>Juegos modo historia</h3>
+            <p>Apreciar narrativas profundas, inmersión y la toma de decisiones en videojuegos de historia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="container text-center">
+      <h2>Encuéntrame en redes</h2>
+      <div class="social my-3">
+        <a id="link-github" href="https://github.com/hancosaucedo-ai" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a id="link-linkedin" href="https://www.linkedin.com/in/carlos-alberto-hanco-saucedo-6a5a3730a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a id="link-email" href="mailto:hancosaucedo@gmail.com" aria-label="Correo"><i class="bi bi-envelope-fill"></i></a>
+      </div>
+      <p class="text-light small mt-2 mb-1"><i class="bi bi-envelope me-1"></i> hancosaucedo@gmail.com</p>
+      <small>&copy; <span id="anio"></span> Universidad Privada Domingo Savio - UPDS.</small>
+    </div>
+  </footer>
+
+  <!-- Modal Reproductor -->
+  <div class="modal fade" id="modalVideo" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title fs-5" id="modalTitulo">Video</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe id="reproductor" src="" title="Video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Lista de videos
+    const videos = [
+      { titulo: "Tutorial Git y GitHub", artista: "UPDS Base de Datos 2", id: "VnlkPqDwKXU" },
+      { titulo: "Desarrollo Web Estático", artista: "Recursos UPDS", id: "mCLWIVPzIHA" }
+    ];
+
+    const lista = document.getElementById("lista-videos");
+    const modalEl = document.getElementById("modalVideo");
+    const reproductor = document.getElementById("reproductor");
+    const modalTitulo = document.getElementById("modalTitulo");
+    const modal = new bootstrap.Modal(modalEl);
+
+    videos.forEach(v => {
+      const col = document.createElement("div");
+      col.className = "col-md-6";
+      col.innerHTML = `
+        <button class="video-card" type="button">
+          <div class="miniatura">
+            <img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy">
+            <span class="play"><i class="bi bi-play-circle-fill"></i></span>
+          </div>
+          <div class="info">
+            <h3>${v.titulo}</h3>
+            <p>${v.artista}</p>
+          </div>
+        </button>`;
+      col.querySelector("button").addEventListener("click", () => {
+        modalTitulo.textContent = `${v.titulo} · ${v.artista}`;
+        reproductor.src = `https://www.youtube.com/embed/${v.id}?autoplay=1`;
+        modal.show();
+      });
+      lista.appendChild(col);
+    });
+
+    modalEl.addEventListener("hidden.bs.modal", () => { reproductor.src = ""; });
+    document.getElementById("anio").textContent = new Date().getFullYear();
+
+    // Script para habilitar la instalación como PWA en celulares
+    let eventoInstalacion = null;
+    const seccionInstalar = document.getElementById("seccion-instalar");
+    const btnInstalar = document.getElementById("btnInstalar");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      eventoInstalacion = e;
+      seccionInstalar.classList.remove("d-none");
+      seccionInstalar.classList.add("d-flex");
+    });
+
+    btnInstalar.addEventListener("click", async () => {
+      if (!eventoInstalacion) return;
+      eventoInstalacion.prompt();
+      const resultado = await eventoInstalacion.userChoice;
+      if (resultado.outcome === "accepted") {
+        seccionInstalar.classList.add("d-none");
+      }
+      eventoInstalacion = null;
+    });
+  </script>
+</body>
+</html>
